@@ -8,10 +8,24 @@ data = Nokogiri::HTML(open(url))
 
 
 begin 
-	db = SQLite3::Database.open "test1.db"
-	db.execute "CREATE TABLE IF NOT EXISTS Movies(Id INTEGER PRIMARY KEY, Name TEXT, Gross INT)"
-	db.execute "INSERT INTO Movies VALUES(1, 'Avatar', 100)"
-	db.execute "INSERT INTO Movies VALUES(2, 'Snatch', 99)"
+	db = SQLite3::Database.open "top50.db"
+	db.execute "CREATE TABLE IF NOT EXISTS Movies(Id INTEGER PRIMARY KEY, Name TEXT, Gross INTEGER, Year TEXT)"
+
+
+	table = data.css("html body div div div table")[1].text
+	# puts table
+
+	array = table.split(/\n\n\n/)
+	array.delete_at(0)
+	# rank = whole_table.css("tbody tr td").text.strip
+	array.each do |string|
+		split_string = string.split(/\n/)
+		gross = split_string[2]
+		gross = gross.gsub("$", '')
+		gross = gross.gsub(/,/, '')
+		title = split_string[1].gsub(/'/, '')
+		db.execute "INSERT INTO Movies VALUES('#{split_string[0]}', '#{title}', '#{gross}', '#{split_string[3]}')"
+	end
 
 rescue SQLite3::Exception => e
 
