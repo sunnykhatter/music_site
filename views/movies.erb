@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang = "en-US">
+<head>
+
+
+</head>
+	<meta charset="UTF-8">
+	<title> Setting up Twitter Bootstrap </title>
+	<meta name = "viewPort" content = "width=device-width, initial-scale=1.0">
+	<meta name = "description" content = "">
+	<meta name = "keywords" content = "">
+	
+	
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+
+<body> 
+
+<div class="bs-docs-example">
+            <table class="table table-hover">
+              <thead>
+          
+          
+                <tr>
+                  <th>Ranking</th>
+                  <th>Movie</th>
+                  <th>Gross (USD)</th>
+                  <th>Year</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @rs.each do |row| %>
+                <tr>
+                
+                
+                
+                  <td><%=row[0]%></td>
+                  <td><%=row[1]%></td>
+                  <td><%=row[2]%></td>
+                  <td><%=row[3]%></td>
+
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+		 
+
+
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"> </script>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
