@@ -1,0 +1,9 @@
+.table-hover tbody tr:hover > td.old {
+  display: none;
+}
+.table-hover tbody tr:hover > td.new {
+ display: table-cell;
+}
+.table-hover tbody tr > td.new {
+ display: none;
+}

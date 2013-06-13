@@ -12,6 +12,7 @@
 	
 	
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link href="custom.css" rel="stylesheet">
 </head>
 
 <body> 
@@ -30,13 +31,20 @@
               </thead>
               <tbody>
                 <% @rs.each do |row| %>
+                <% years = 2013 - row[3] %>
+                <% years = 1 if years == 0 %>
+                <% inflation = (0.03 * years) %>
+                <% newgross = (row[2] * ( 1 + inflation)).to_i %>
+                <% old = row[2] %>
+
                 <tr>
                 
                 
                 
                   <td><%=row[0]%></td>
                   <td><%=row[1]%></td>
-                  <td><%=row[2]%></td>
+                  <td class="old"><%= old %></td>
+                  <td class="new"><%= newgross %></td> 
                   <td><%=row[3]%></td>
 
                 </tr>
