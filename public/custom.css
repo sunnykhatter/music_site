@@ -1,5 +1,5 @@
 body {
-	font-family: 'Donegal One', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 .table-hover tbody tr:hover > td.old {
   display: none;
@@ -24,4 +24,18 @@ button.above-ten {
 
 .text-center {
 	text-align: center;
+}
+
+button.above-ten {
+	color: white;
+	font-size: 12px;
+	font-weight: 700;
+	padding: 3px 6px;
+	background-image:-moz-linear-gradient(top,#ee5f5b,#bd362f);
+	background-image:-ms-linear-gradient(top,#ee5f5b,#bd362f);
+	background-image:-webkit-gradient(linear,0 0,0 100%,from(#ee5f5b),to(#bd362f));
+	background-image:-webkit-linear-gradient(top,#ee5f5b,#bd362f);
+	background-image:-o-linear-gradient(top,#ee5f5b,#bd362f);
+	background-image:linear-gradient(top,#ee5f5b,#bd362f);
+	border-radius: 4px;
 }
