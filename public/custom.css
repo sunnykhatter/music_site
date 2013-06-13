@@ -1,8 +1,6 @@
 body {
 	font-family: 'Donegal One', sans-serif;
 }
-
-
 .table-hover tbody tr:hover > td.old {
   display: none;
 }
@@ -15,4 +13,15 @@ body {
 
 table {
 	margin: 0px auto;
+}
+
+tr.overten {
+	display: none;
+}
+
+button.above-ten {
+}
+
+.text-center {
+	text-align: center;
 }
