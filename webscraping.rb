@@ -5,12 +5,13 @@ require 'sqlite3'
 url = "http://en.wikipedia.org/wiki/List_of_highest-grossing_films"
 
 data = Nokogiri::HTML(open(url))
-
+version = "First"
 
 begin 
-	db = SQLite3::Database.open "top50.db"
-	db.execute "CREATE TABLE IF NOT EXISTS Movies(Id INTEGER PRIMARY KEY, Name TEXT, Gross INTEGER, Year TEXT)"
-
+	db = SQLite3::Database.open "#{version}top50.db"
+	
+	db.execute "CREATE TABLE IF NOT EXISTS Movies(Id INTEGER PRIMARY KEY, Name TEXT, Gross INTEGER, Year INTEGER)"
+	db.execute "DELETE FROM Movies"
 
 	table = data.css("html body div div div table")[1].text
 	# puts table

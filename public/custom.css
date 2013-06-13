@@ -1,3 +1,8 @@
+body {
+	font-family: 'Donegal One', sans-serif;
+}
+
+
 .table-hover tbody tr:hover > td.old {
   display: none;
 }
@@ -6,4 +11,8 @@
 }
 .table-hover tbody tr > td.new {
  display: none;
+}
+
+table {
+	margin: 0px auto;
 }

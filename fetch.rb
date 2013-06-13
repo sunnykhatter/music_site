@@ -1,12 +1,15 @@
 require 'sqlite3'
 require 'sinatra'
 
+version = "First"
+
 get '/' do
 
 	begin
 
 
-	db = SQLite3::Database.open "top50.db"
+	db = SQLite3::Database.open "#{version}top50.db"
+
 
 	stm = db.prepare "SELECT * FROM Movies LIMIT 50"
 	@rs = stm.execute
