@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   $("button.above-ten").click(function(){
-    $(".overten").toggle();
+    $(".overten").toggle("slow");
     if ($(this).text() == "Show Top 50") 
     { 
       $(this).text("Hide Top 50"); 

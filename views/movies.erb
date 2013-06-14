@@ -38,23 +38,25 @@
           <% years = 1 if years == 0 %>
           <% inflation = (0.03 * years) %>
           <% newgross = (row[2] * ( 1 + inflation)).to_i %>
+          <% newgross = newgross.to_s.reverse.gsub(/...(?=.)/,'\&,').reverse %>
           <% old = row[2] %>
+          <% old = old.to_s.reverse.gsub(/...(?=.)/,'\&,').reverse %>
           <% if count < 10 %>
             <tr>
               <td><%=row[0]%></td>
               <td><%=row[1]%></td>
-              <td class="old">$<%= old %></td>
-              <td class="new">$<%= newgross %></td> 
-              <td><%=row[3]%></td>
+              <td class="old text-right">&nbsp;&nbsp;$<%= old %></td>
+              <td class="new text-right">&nbsp;&nbsp;$<%= newgross %></td> 
+              <td>&nbsp;&nbsp;<%=row[3]%></td>
             </tr>
             <% count += 1 %>
           <% else %>
             <tr class="overten">
               <td><%=row[0]%></td>
               <td><%=row[1]%></td>
-              <td class="old">$<%= old %></td>
-              <td class="new">$<%= newgross %></td> 
-              <td><%=row[3]%></td>
+              <td class="old text-right">&nbsp;&nbsp;$<%= old %></td>
+              <td class="new text-right">&nbsp;&nbsp;$<%= newgross %></td> 
+              <td>&nbsp;&nbsp;<%=row[3]%></td>
             </tr>
           <% end %>
         <% end %>
